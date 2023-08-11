@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+
+}
+
+header{
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgb(33, 42, 62) ;
+
+}
+ 
+
+.navbar.navbar-expand-lg.bg-body-tertiary{
+    background-color: transparent !important;
+
+}
+
+.logo_kr{
+    max-width: 100px;
+    border-radius: 30px;
+}
+
+
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+.nav_list{
+    padding:1rem;
+}
+
+.nav_link{
+    font-size: 20px;
+    display: inline;
+    margin-right: 5px;
+    margin: 5px;
+    padding: 5px;
+
+}
