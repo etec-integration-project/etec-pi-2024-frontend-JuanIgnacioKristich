@@ -1,7 +1,8 @@
+import './body.css';
 import React from 'react'
 import iphone1 from "../../multimedia/iphone14logo.png";
 import gadget from "../../multimedia/auricular.png";
-import './body.css';
+
 export default function Body() {
   return <>
             {/* <div class="card" style="width: 80%;">

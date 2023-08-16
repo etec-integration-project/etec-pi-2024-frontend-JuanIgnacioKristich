@@ -48,7 +48,7 @@ export default function Header(){
                     <img class="logo_kr" src={logo} alt="APP LOGO"/>
                 </h1>
                 <ul class="nav_list">
-                    <li class="nav_link"><a href="#"><img src={""} alt=""/>as</a></li> 
+                    <li class="nav_link"><a href="#"><img src={""} alt=""/></a></li> 
                     <li class="nav_link"><a href="#"><img src={acount_circle} alt=""/></a></li>
                     <li class="nav_link"><a href="#"><img src={cart} alt=""/></a></li>
                 </ul>

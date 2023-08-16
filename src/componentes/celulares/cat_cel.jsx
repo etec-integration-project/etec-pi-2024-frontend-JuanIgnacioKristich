@@ -1,7 +1,7 @@
 
 import './cat_cel.css';
 import iphone_14_pro_max from "../../multimedia/iphone-14-pro-max-.png"
-import iphone_14_plus from "../../multimedia/iphone-14-plus.png"
+import iphone_14_plus from "../../multimedia/14-plus.png"
 import iphone_13_pro_max from "../../multimedia/iphone-13-pro-max.png"
 import iphone_13 from "../../multimedia/iphone-13-green.png"
 import iphone_13_select from "../../multimedia/iphone-13-green-select.png"
