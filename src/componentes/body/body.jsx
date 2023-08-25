@@ -2,6 +2,7 @@ import './body.css';
 import React from 'react'
 import iphone1 from "../../multimedia/iphone14logo.png";
 import gadget from "../../multimedia/auricular.png";
+import {Link} from 'react-router-dom';
 
 export default function Body() {
   return <>
@@ -26,7 +27,7 @@ export default function Body() {
 
             <main>
                 <div class="Producto">
-                    <a href="celulares.html"> <img src={iphone1} alt="" class="producto-logo"/> </a>
+                    <Link to="/cat_cel"> <img src={iphone1} alt="" class="producto-logo"/> </Link>
                 </div>
                                     
                 <div class="Producto">
