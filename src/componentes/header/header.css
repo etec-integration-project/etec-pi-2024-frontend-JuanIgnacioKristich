@@ -41,8 +41,14 @@ nav{
 .nav_link{
     font-size: 20px;
     display: inline;
+    justify-content: center;
     margin-right: 5px;
     margin: 5px;
     padding: 5px;
 
+}
+.nav_link img{
+    margin-top: 12px ;
+    display: flex, inline;
+    justify-content: center;
 }

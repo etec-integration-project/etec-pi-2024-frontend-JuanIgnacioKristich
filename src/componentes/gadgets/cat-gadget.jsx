@@ -1,11 +1,10 @@
-
-import './cat_cel.css';
-import iphone_14_pro_max from "../../multimedia/iphone-14-pro-max-.png"
-import iphone_14_plus from "../../multimedia/14-plus.png"
-import iphone_13_pro_max from "../../multimedia/iphone-13-pro-max.png"
-import iphone_13 from "../../multimedia/iphone-13-green.png"
-import iphone_13_select from "../../multimedia/iphone-13-green-select.png"
-export default function Cat_Celulares(){
+import './cat_gadget.css';
+import airpod_pro from "../../multimedia/iphone-14-pro-max-.png"
+import airpod_ from "../../multimedia/14-plus.png"
+import airpod_ from "../../multimedia/iphone-13-pro-max.png"
+import  airpod_ from "../../multimedia/iphone-13-green.png"
+import  airpod_ from "../../multimedia/iphone-13-green-select.png"
+export default function Cat_Gadget(){
     return<>
         <main class="main_1">
             <div class="Producto1">
@@ -31,4 +30,3 @@ export default function Cat_Celulares(){
         </main>
     
     </>
-}

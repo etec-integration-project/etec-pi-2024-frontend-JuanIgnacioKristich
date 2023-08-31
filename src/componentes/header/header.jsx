@@ -2,6 +2,7 @@ import './header.css';
 import acount_circle from '../../multimedia/account_circle.png'
 import cart from "../../multimedia/shopping_cart.png"
 import logo from "../../multimedia/KR-store-logo.png"
+import { Link } from 'react-router-dom';
 export default function Header(){
     return(
 
@@ -45,7 +46,7 @@ export default function Header(){
         <header>
             <nav>
                 <h1>
-                    <img class="logo_kr" src={logo} alt="APP LOGO"/>
+                    <Link to="/"><img class="logo_kr" src={logo} alt="APP LOGO"/></Link>
                 </h1>
                 <ul class="nav_list">
                     <li class="nav_link"><a href="#"><img src={""} alt=""/></a></li> 

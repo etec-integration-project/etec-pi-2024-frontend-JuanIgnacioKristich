@@ -40,6 +40,21 @@ function App() {
           }>
           </Route>
 
+          <Route
+            path="/cat-gadget"
+            element={
+              <>
+              <Header />
+              <Cat_Gadget />
+              <Footer/>
+              </>
+            }
+          >
+            
+
+          </Route>
+
+
         </Routes>
       
       </BrowserRouter>
