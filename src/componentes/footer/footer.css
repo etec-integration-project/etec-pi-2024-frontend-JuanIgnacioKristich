@@ -6,11 +6,12 @@
 }
 
 footer{
-    max-width: 100% ;
+    width: 100vw ;
     max-height: auto;
 
     background-color: rgb(33, 42, 62);
-    
+    position: absolute;
+    bottom: 0;
 }
 
 
