@@ -1,32 +1,32 @@
-import './cat_gadget.css';
-import airpod_pro from "../../multimedia/iphone-14-pro-max-.png"
-import airpod_ from "../../multimedia/14-plus.png"
-import airpod_ from "../../multimedia/iphone-13-pro-max.png"
-import  airpod_ from "../../multimedia/iphone-13-green.png"
-import  airpod_ from "../../multimedia/iphone-13-green-select.png"
+import './cat-gadget.css';
+import airpod_pro from "../../multimedia/airpods-pro.png"
+import airpod_max from "../../multimedia/airpods-max.png"
+import airpod_gen3 from "../../multimedia/airpods-gen3.png"
+import  airpod_gen2 from "../../multimedia/airpod-gen2.png"
+
 export default function Cat_Gadget(){
-    return<>
+    return <>
         <main class="main_1">
-            <div class="Producto1">
-                <img src={iphone_14_pro_max} alt="" class="producto-cat-cel"/><button ><a href="#"></a> Iphone 14 Pro Max</button>
+            <div class="Producto-gad">
+                <img src={airpod_max} alt="" class="producto-cat-gad"/><button ><a href="#"></a> Airpods Max</button>
             </div>
 
-            <div class="Producto1">
-                <img src={iphone_14_plus} class="producto-cat-cel"/><button ><a href="#"></a> Iphone 14</button>
+            <div class="Producto-gad">
+                <img src={airpod_pro} class="producto-cat-gad"/><button ><a href="#"></a> Airpods Pro</button>
             </div>
             
-            <div class="Producto1">
-                <img src={iphone_13_pro_max} alt="" class="producto-cat-cel"/><button ><a href="#"></a> Iphone 13 pro max</button>
+            <div class="Producto-gad">
+                <img src={airpod_gen3} alt="" class="producto-cat-gad"/><button ><a href="#"></a> Airpods GEN3 </button>
             </div>
             
-            <div class="Producto1">
-                <img src={iphone_13} alt="" class="producto-cat-cel"/><button ><a href="#"></a> Celulares</button>
+            <div class="Producto-gad">
+                <img src={airpod_gen2} alt="" class="producto-cat-gad"/><button ><a href="#"></a> Airpods GEN2 </button>
             </div>
             
-            <div class="Producto1">
-                <img src={iphone_13_select} alt="" class="producto-cat-cel"/><button ><a href="#"></a> Celulares</button>
+            <div class="Producto-gad">
+                <img src={airpod_gen2} alt="" class="producto-cat-gad"/><button ><a href="#"></a> Celulares</button>
             </div>
             
         </main>
-    
     </>
+}

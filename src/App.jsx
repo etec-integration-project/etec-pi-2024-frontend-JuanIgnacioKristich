@@ -4,6 +4,8 @@ import Header from './componentes/header/header';
 import Body from './componentes/body/body';
 import Footer from "./componentes/footer/footer"
 import Cat_Celulares from './componentes/celulares/cat_cel';
+import Cat_Gadget from './componentes/gadgets/cat-gadget';
+import Register from "./componentes/register/register"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
@@ -41,11 +43,11 @@ function App() {
           </Route>
 
           <Route
-            path="/cat-gadget"
+            path="/register"
             element={
               <>
               <Header />
-              <Cat_Gadget />
+              <Register/>
               <Footer/>
               </>
             }
@@ -54,6 +56,16 @@ function App() {
 
           </Route>
 
+          <Route
+            path="/cat_gadget"
+            element={
+              <>
+                <Header />
+                <Cat_Gadget />
+                <Footer/>
+              </>
+          }>
+          </Route>
 
         </Routes>
       

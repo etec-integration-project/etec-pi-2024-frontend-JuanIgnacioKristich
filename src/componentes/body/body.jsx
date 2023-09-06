@@ -31,7 +31,7 @@ export default function Body() {
                 </div>
                                     
                 <div class="Producto">
-                    <Link to="/cat_cel"><img src={gadget} alt="" class="producto-logo"/> </Link>
+                    <Link to="/cat_gadget"><img src={gadget} alt="" class="producto-logo"/> </Link>
                 </div>
 
             </main>
