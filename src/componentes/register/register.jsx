@@ -95,7 +95,7 @@ function LoginForm() {
       </form>
       <p>
         ¿Ya tienes una cuenta?{' '}
-        <a href="/sign-up">inicia secion aquí</a>
+        <Link to="/Login" >inicia secion aquí</Link>
       </p>
     </div>
   );

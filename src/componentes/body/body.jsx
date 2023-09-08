@@ -27,11 +27,11 @@ export default function Body() {
 
             <main>
                 <div class="Producto">
-                    <Link to="/cat_cel"> <img src={iphone1} alt="" class="producto-logo"/> </Link>
+                    <Link to="/Cat_cel"> <img src={iphone1} alt="" class="producto-logo"/> </Link>
                 </div>
                                     
                 <div class="Producto">
-                    <Link to="/cat_gadget"><img src={gadget} alt="" class="producto-logo"/> </Link>
+                    <Link to="/Cat_gadget"><img src={gadget} alt="" class="producto-logo"/> </Link>
                 </div>
 
             </main>

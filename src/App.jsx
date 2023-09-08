@@ -6,6 +6,7 @@ import Footer from "./componentes/footer/footer"
 import Cat_Celulares from './componentes/celulares/cat_cel';
 import Cat_Gadget from './componentes/gadgets/cat-gadget';
 import Register from "./componentes/register/register"
+import Login from "./componentes/login/login"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
@@ -32,7 +33,7 @@ function App() {
           </Route>
 
           <Route
-            path="/cat_cel"
+            path="/Cat_cel"
             element={
               <>
                 <Header />
@@ -43,7 +44,7 @@ function App() {
           </Route>
 
           <Route
-            path="/register"
+            path="/Register"
             element={
               <>
               <Header />
@@ -57,11 +58,22 @@ function App() {
           </Route>
 
           <Route
-            path="/cat_gadget"
+            path="/Cat_gadget"
             element={
               <>
                 <Header />
                 <Cat_Gadget />
+                <Footer/>
+              </>
+          }>
+          </Route>
+
+          <Route
+            path="/Login"
+            element={
+              <>
+                <Header />
+                <Login />
                 <Footer/>
               </>
           }>

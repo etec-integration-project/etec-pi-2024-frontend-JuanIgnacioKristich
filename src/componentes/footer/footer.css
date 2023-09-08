@@ -10,7 +10,7 @@ footer{
     max-height: auto;
 
     background-color: rgb(33, 42, 62);
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
