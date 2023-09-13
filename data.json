@@ -1,0 +1,39 @@
+[
+    {
+        "id":1,
+        "name":"Iphone-14-pro-max",
+        "price": 1500,
+        "imagen": "../../"
+    },
+
+
+    {
+        "id":2,
+        "name":"Iphone-14-pro",
+        "price": 1250
+    },
+
+
+    {
+        "id":3,
+        "name":"Iphone-13",
+        "price": 900
+    },
+
+
+    {
+        "id":4,
+        "name":"Iphone-13-green",
+        "price": 900
+    },
+
+
+    {
+
+    },
+
+
+    {
+
+    }
+]
