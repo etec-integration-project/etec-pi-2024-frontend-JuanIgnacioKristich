@@ -23,8 +23,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 3px;
-    max-width: 100%;
+    border-radius: 1rem;
+    max-width: 50vw;
     height: auto;
 }
 .Producto1:hover{

@@ -7,6 +7,8 @@ import Cat_Celulares from './componentes/celulares/cat_cel';
 import Cat_Gadget from './componentes/gadgets/cat-gadget';
 import Register from "./componentes/register/register"
 import Login from "./componentes/login/login"
+import DataProvider from './componentes/context/DataContext';
+import Productos from './componentes/productos/Productos';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
@@ -16,73 +18,76 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      
-      <BrowserRouter>
-      
-        <Routes>
+      <DataProvider>
 
-          <Route
-            path="/"
-            element={
-              <>
+        <BrowserRouter>
+        
+          <Routes>
+
+            <Route
+              path="/"
+              element={
+                <>
+                  <Header />
+                  <Body />
+                  <Productos/>
+                  <Footer/>
+                </>
+            }>
+            </Route>
+
+            <Route
+              path="/Cat_cel"
+              element={
+                <>
+                  <Header />
+                  <Cat_Celulares />
+                  <Footer/>
+                </>
+            }>
+            </Route>
+
+            <Route
+              path="/Register"
+              element={
+                <>
                 <Header />
-                <Body />
+                <Register/>
                 <Footer/>
-              </>
-          }>
-          </Route>
+                </>
+              }
+            >
+              
 
-          <Route
-            path="/Cat_cel"
-            element={
-              <>
-                <Header />
-                <Cat_Celulares />
-                <Footer/>
-              </>
-          }>
-          </Route>
+            </Route>
 
-          <Route
-            path="/Register"
-            element={
-              <>
-              <Header />
-              <Register/>
-              <Footer/>
-              </>
-            }
-          >
-            
+            <Route
+              path="/Cat_gadget"
+              element={
+                <>
+                  <Header />
+                  <Cat_Gadget />
+                  <Footer/>
+                </>
+            }>
+            </Route>
 
-          </Route>
+            <Route
+              path="/Login"
+              element={
+                <>
+                  <Header />
+                  <Login />
+                  <Footer/>
+                </>
+            }>
+            </Route>
 
-          <Route
-            path="/Cat_gadget"
-            element={
-              <>
-                <Header />
-                <Cat_Gadget />
-                <Footer/>
-              </>
-          }>
-          </Route>
+          </Routes>
+        
+        </BrowserRouter>
 
-          <Route
-            path="/Login"
-            element={
-              <>
-                <Header />
-                <Login />
-                <Footer/>
-              </>
-          }>
-          </Route>
-
-        </Routes>
-      
-      </BrowserRouter>
-
+      </DataProvider>
 
     </div>
 

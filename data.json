@@ -3,7 +3,7 @@
         "id":1,
         "name":"Iphone-14-pro-max",
         "price": 1500,
-        "imagen": "../../"
+        "img": "./multimedia/iphone-14-pro-max-.png"
     },
 
 
@@ -29,7 +29,9 @@
 
 
     {
-
+        "id":5,
+        "name":"Iphone-13-pro-green",
+        "price": 900
     },
 
 
