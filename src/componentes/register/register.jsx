@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 
+import "./register.css";
+
 function LoginForm() {
   const [formData, setFormData] = useState({
     username: '',
@@ -36,9 +38,9 @@ function LoginForm() {
   };
 
   return (
-    <div>
+    <div className='contenedor-register' >
       <h2>Registrate</h2>
-      <form onSubmit={handleSubmit}>
+      <form className='form-register' onSubmit={handleSubmit}>
         <div>
           <label>Nombre de Usuario:</label>
           <input
