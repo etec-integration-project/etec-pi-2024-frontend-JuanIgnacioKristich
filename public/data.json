@@ -1,0 +1,39 @@
+[
+    {
+        "id":1,
+        "name":"Iphone-14-pro-max",
+        "price": 1500,
+        "img": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-max-silver-select?wid=940&hei=1112&fmt=png-alpha&.v=1663364576311"
+    },
+
+
+    {
+        "id":2,
+        "name":"Iphone-14-pro",
+        "img":"https://static.skyassets.com/contentstack/assets/blt143e20b03d72047e/blt5cf4d8674f42be4c/6319d97a8c6aa1311ba18f96/Carousel_iPhone14Plus_Blue_Placement01-PreOrder.png",
+        "price": 1250
+    },
+
+
+    {
+        "id":3,
+        "name":"Iphone-13",
+        "img":"https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/legacy_bdt/iphone-13-pro-max-blue-select.png?tf=1200x",
+        "price": 900
+    },
+
+
+    {
+        "id":4,
+        "name":"Iphone-13-green",
+        "price": 900
+    },
+
+
+    {
+        "id":5,
+        "name":"Iphone-13-pro-green",
+        "price": 900
+    }
+
+]

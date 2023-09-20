@@ -3,7 +3,7 @@ import React from 'react'
 import iphone1 from "../../multimedia/iphone14logo.png";
 import gadget from "../../multimedia/auricular.png";
 import {Link} from 'react-router-dom';
-import Productos from '../productos/Productos';
+import Productos from '../Productos/Productos';
 
 export default function Body() {
   return <>
@@ -38,8 +38,6 @@ export default function Body() {
                         <Link to="/Cat_gadget"><img src={gadget} alt="" class="producto-logo"/> </Link>
                     </div>
                 </ul>               
-                
-                <Productos/>
             </main>
     </>
 }
