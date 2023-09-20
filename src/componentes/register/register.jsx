@@ -40,65 +40,67 @@ function LoginForm() {
   return (
     <div className='contenedor-register' >
       <h2>Registrate</h2>
-      <form className='form-register' onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre de Usuario:</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Contraseña:</label>
-          <input
-            type={showPassword ? 'text' : 'password'}
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Confirmar Contraseña:</label>
-          <input
-            type={showPassword ? 'text' : 'password'}
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-          />
-           <button type="button" onClick={toggleShowPassword}>
-            {showPassword ? 'Ocultar Contraseña' : 'Mostrar Contraseña'}
-          </button>
-        </div>
-        {!passwordMatch && (
-          <p style={{ color: 'red' }}>Las contraseñas no coinciden.</p>
-        )}
-        <div>
-          <label>Dirección:</label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Submit</button>
-        <button type="reset">Resetear</button>
-      </form>
-      <p>
-        ¿Ya tienes una cuenta?{' '}
-        <Link to="/Login" >inicia secion aquí</Link>
-      </p>
+      <div className="form-register-css">
+        <form className='form-register' onSubmit={handleSubmit}>
+          <div>
+            <label>Nombre de Usuario:</label>
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Contraseña:</label>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Confirmar Contraseña:</label>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+            />
+            <button type="button" onClick={toggleShowPassword}>
+              {showPassword ? 'Ocultar Contraseña' : 'Mostrar Contraseña'}
+            </button>
+          </div>
+          {!passwordMatch && (
+            <p style={{ color: 'red' }}>Las contraseñas no coinciden.</p>
+          )}
+          <div>
+            <label>Dirección:</label>
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit">Submit</button>
+          <button type="reset">Resetear</button>
+        </form>
+        <p>
+          ¿Ya tienes una cuenta?{' '}
+          <Link to="/Login" >inicia secion aquí</Link>
+        </p>
+      </div>
     </div>
   );
 }

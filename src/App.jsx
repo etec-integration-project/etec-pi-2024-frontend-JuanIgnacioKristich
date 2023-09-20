@@ -7,8 +7,8 @@ import Cat_Celulares from './componentes/celulares/cat_cel';
 import Cat_Gadget from './componentes/gadgets/cat-gadget';
 import Register from "./componentes/register/register"
 import Login from "./componentes/login/login"
-import DataProvider from './componentes/Context/DataContext';
-import Productos from './componentes/Productos/Productos';
+import DataProvider from './componentes/context/DataContext';
+import Productos from './componentes/productos/Productos';
 import Cart from './componentes/cart/cart';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

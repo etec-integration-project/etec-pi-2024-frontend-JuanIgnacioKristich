@@ -1,6 +1,6 @@
 
 import './cat_cel.css';
-import Productos from '../Productos/Productos';
+import Productos from '../productos/Productos';
 export default function Cat_Celulares(){
     return<>
         <main class="main_1">

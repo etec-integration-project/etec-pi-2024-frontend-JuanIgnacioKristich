@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import CartElements from './CartElements';
 import CartTotal from './CartTotal';
 import { Link } from 'react-router-dom';
-import { dataContext } from '../Context/DataContext';
+import { dataContext } from '../context/DataContext';
 
 
 const Cart = () => {

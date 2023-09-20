@@ -12,10 +12,9 @@
     align-items: center;
 }
 
-.form-register{
+div{
+
     display: block;
-    width: 100vw;
-    height: auto;
     justify-content: center;
-    align-items: center;
+
 }
