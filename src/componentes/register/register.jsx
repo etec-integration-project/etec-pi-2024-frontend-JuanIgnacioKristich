@@ -93,7 +93,15 @@ function LoginForm() {
               onChange={handleChange}
             />
           </div>
-          <button type="submit">Submit</button>
+
+          <button type="submit"  > Submit</button> ?  {passwordMatch && (
+           <Link to="/">
+             <button type="submit"  > Submit</button> 
+           </Link>
+          )}
+
+         
+
           <button type="reset">Resetear</button>
         </form>
         <p>

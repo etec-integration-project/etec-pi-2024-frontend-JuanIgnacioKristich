@@ -28,9 +28,9 @@ body{
 }
 
 .Producto1 img{
-    display: flex;
+
     align-content: center;
-    margin: 16px;
+    justify-content: center;
     max-width: 450px;
-    height: 450px;
+    max-height: 450px;
 }

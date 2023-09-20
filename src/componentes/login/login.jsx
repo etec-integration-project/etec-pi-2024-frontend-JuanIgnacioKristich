@@ -58,7 +58,10 @@ function LoginForm() {
             Mostrar Contraseña
           </button>
         </div>
+        <Link to="/">
         <button type="submit">Iniciar Sesión</button>
+        </Link>
+        
       </form>
       <p>
         ¿No tienes una cuenta?{' '}

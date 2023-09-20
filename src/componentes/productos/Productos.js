@@ -16,9 +16,9 @@ export const Productos = () => {
         return(
             <div className="card" key="product.id" > 
                 <img src={Productos.img} alt="img-producto-card" />
-                <h3> {Productos.name} </h3>
-                <h4> {Productos.price}$ </h4>
-                <button onClick={()=>buyProducts(Productos)} >buy</button>
+                <h3 className="Producto-estilo"> {Productos.name} </h3>
+                <h4 className="Producto-estilo"> {Productos.price}$ </h4>
+                <button onClick={()=>buyProducts(Productos)} >Buy</button>
             </div>
             
         );
