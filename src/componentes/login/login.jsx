@@ -54,10 +54,14 @@ function LoginForm() {
             onChange={handleChange}
             required
           />
-          <button type="button" onClick={toggleShowPassword}>
-            Mostrar Contraseña
-          </button>
+          
+          
         </div>
+
+        <button type="button" onClick={toggleShowPassword}>
+            Mostrar Contraseña
+        </button>
+
         <Link to="/">
         <button type="submit">Iniciar Sesión</button>
         </Link>

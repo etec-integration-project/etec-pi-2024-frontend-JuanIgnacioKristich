@@ -42,7 +42,7 @@ function LoginForm() {
       <h2>Registrate</h2>
       <div className="form-register-css">
         <form className='form-register' onSubmit={handleSubmit}>
-          <div>
+          <div className="conteiner-form-register">
             <label>Nombre de Usuario:</label>
             <input
               type="text"
@@ -51,7 +51,7 @@ function LoginForm() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="conteiner-form-register">
             <label>Email:</label>
             <input
               type="email"
@@ -60,7 +60,7 @@ function LoginForm() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="conteiner-form-register">
             <label>Contraseña:</label>
             <input
               type={showPassword ? 'text' : 'password'}
@@ -69,7 +69,7 @@ function LoginForm() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="conteiner-form-register">
             <label>Confirmar Contraseña:</label>
             <input
               type={showPassword ? 'text' : 'password'}
@@ -84,7 +84,7 @@ function LoginForm() {
           {!passwordMatch && (
             <p style={{ color: 'red' }}>Las contraseñas no coinciden.</p>
           )}
-          <div>
+          <div className="conteiner-form-register">
             <label>Dirección:</label>
             <input
               type="text"
@@ -94,11 +94,11 @@ function LoginForm() {
             />
           </div>
 
-          <button type="submit"  > Submit</button> ?  {passwordMatch && (
+           <button type="submit"  > Submit</button> {/*?  {passwordMatch && (
            <Link to="/">
              <button type="submit"  > Submit</button> 
            </Link>
-          )}
+          )} */}
 
          
 
