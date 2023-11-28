@@ -11,6 +11,7 @@ import DataProvider from './componentes/context/DataContext';
 import Productos from './componentes/productos/Productos';
 import Cart from './componentes/cart/cart';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ShowProducts from './componentes/celulares/ShowProducts';
 
 
 
@@ -89,6 +90,17 @@ function App() {
                 <>
                   <Header />
                   <Cart />
+                  <Footer/>
+                </>
+            }>
+            </Route>
+
+            <Route
+              path="/ShowProducts"
+              element={
+                <>
+                  <Header />
+                  <ShowProducts />
                   <Footer/>
                 </>
             }>

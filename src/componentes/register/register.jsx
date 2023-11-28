@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
-
+import axios from 'axios';
 import "./register.css";
+
+
+
+
+
 
 function LoginForm() {
   const [formData, setFormData] = useState({
-    username: '',
+    users: '',
     email: '',
     password: '',
     confirmPassword: '',
     address: '',
+    
   });
+
 
   const [showPassword, setShowPassword] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);

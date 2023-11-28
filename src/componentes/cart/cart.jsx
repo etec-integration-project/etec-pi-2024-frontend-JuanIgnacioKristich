@@ -11,7 +11,7 @@ const Cart = () => {
 
 
   return cart.length > 0 ? (<>
-  <CartElements/>;
+  <CartElements/>
   <CartTotal/>
   </>): (
     <h2 className='cart-massage-center'>El carrito esta vacio</h2>

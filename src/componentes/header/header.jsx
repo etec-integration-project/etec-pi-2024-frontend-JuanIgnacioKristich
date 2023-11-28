@@ -15,6 +15,7 @@ export default function Header(){
                     <li class="nav_link"><img src={""} alt=""/></li> 
                     <li class="nav_link"><Link to="/register"><img src={acount_circle} alt=""/></Link></li>
                     <li class="nav_link"><Link to ="/Cart"><img src={cart} alt=""/></Link></li>
+                    <li class="nav_link"><Link to ="/ShowProducts" ><img src={cart} alt="" /></Link> </li>
                 </ul>
             </nav> 
         </header>

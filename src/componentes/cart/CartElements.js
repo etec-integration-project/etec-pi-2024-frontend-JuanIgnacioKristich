@@ -16,9 +16,9 @@ function CartElements() {
     return(
         <div className='cartContent' key={Productos.id}>
             <img src={Productos.img} alt='product-card' />
-            <h3 className='name'>{Productos.name}</h3>
+            <h3 className='name'>{Productos.firstname}</h3>
             {/* <CartItemCounter product={Productos} /> */}
-            <h4 className='price'>{Productos.price}$</h4>
+            <h4 className='price'>{Productos.Price}$</h4>
              <button class='cart-delete-button' onClick={() => deleteProduct(Productos.id)}>
             ❌ 
             </button> 
