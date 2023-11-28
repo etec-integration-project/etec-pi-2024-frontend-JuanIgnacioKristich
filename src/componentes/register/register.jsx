@@ -1,123 +1,77 @@
-import React, { useState } from 'react';
+
+
+import React, { useState } from "react";
+import "./register.css";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import "./register.css";
 
 
+export default function Register() {
+  const [firstname, nombre]=useState("")
+  const [Password, contraseña] =useState("")
+  const [Email, correoElectronico]=useState("")
+  const [repeatPassword, repetirContraseña] =useState("")
+  const registro = async (e) =>{
+    e.preventDefault()
+    if (Password === repeatPassword){
+      try {
+        await axios.post("http://localhost:3000/api/users",{Email,Password,firstname})
+        alert("cuenta creada exitosamente")
+        
+      } catch (error) {
+        alert("no se pudo crear la cuenta")
+        
+      }
 
-
-
-
-function LoginForm() {
-  const [formData, setFormData] = useState({
-    users: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    address: '',
-    
-  });
-
-
-  const [showPassword, setShowPassword] = useState(false);
-  const [passwordMatch, setPasswordMatch] = useState(true);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData.password === formData.confirmPassword) {
-      // Aquí puedes realizar la acción de inicio de sesión
-      console.log('Iniciar sesión con:', formData);
-    } else {
-      setPasswordMatch(false);
+      
     }
-  };
-
-  const toggleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+    else{
+      alert("las contraseñas no son iguales")
+    }
+    
+  }
 
   return (
-    <div className='contenedor-register' >
-      <h2>Registrate</h2>
-      <div className="form-register-css">
-        <form className='form-register' onSubmit={handleSubmit}>
-          <div className="conteiner-form-register">
-            <label>Nombre de Usuario:</label>
-            <input
-              type="text"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="conteiner-form-register">
-            <label>Email:</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="conteiner-form-register">
-            <label>Contraseña:</label>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="conteiner-form-register">
-            <label>Confirmar Contraseña:</label>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-            />
-            <button type="button" onClick={toggleShowPassword}>
-              {showPassword ? 'Ocultar Contraseña' : 'Mostrar Contraseña'}
-            </button>
-          </div>
-          {!passwordMatch && (
-            <p style={{ color: 'red' }}>Las contraseñas no coinciden.</p>
-          )}
-          <div className="conteiner-form-register">
-            <label>Dirección:</label>
-            <input
-              type="text"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-            />
-          </div>
+    <div className="login-container">
+      <form className="login-form" action="#" method="post">
+        <h2>Cree su cuenta</h2>
+        <div className="input-container">
+          <label htmlFor="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" value ={firstname} onChange={(e) => nombre (e.target.value)} required />
+        </div>
+        <div className="input-container">
+          <label htmlFor="email">Correo Electrónico</label>
+          <input type="email" id="email" name="email" value ={Email} onChange={(e) => correoElectronico (e.target.value)} required />
+        </div>
+        <div className="input-container">
+          <label htmlFor="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" name="contrasena" value ={Password} onChange={(e) => contraseña (e.target.value)} required />
+        </div>
+        <div className="input-container">
+          <label htmlFor="repetir-contrasena">Repetir Contraseña</label>
+          <input
+            type="password"
+            id="repetir-contrasena"
+            name="repetir-contrasena" value ={repeatPassword} onChange={(e) => repetirContraseña (e.target.value)}
+            required
+          />
+        </div>
 
-           <button type="submit"  > Submit</button> {/*?  {passwordMatch && (
-           <Link to="/">
-             <button type="submit"  > Submit</button> 
-           </Link>
-          )} */}
+        <div className ="botoneslogin">
+          
+          <Link>
+            <button type="submit" onClick = {registro}>Crear cuenta </button>
+          
+          </Link>
 
-         
 
-          <button type="reset">Resetear</button>
-        </form>
-        <p>
-          ¿Ya tienes una cuenta?{' '}
-          <Link to="/Login" >inicia secion aquí</Link>
-        </p>
-      </div>
+        </div>
+        
+        
+      </form>
     </div>
   );
 }
 
-export default LoginForm;
+
+

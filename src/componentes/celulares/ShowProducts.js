@@ -159,7 +159,7 @@ const ShowProducts = () => {
                             <input type='hidden' id='id'></input>
                             <div className='input-group mb-3' >
                                 <span className='input-group-text'><i className='fa-solid fa-gift'></i></span>
-                                <input type='text' id='firstname' className='form-control' placeholder='First Name' value={firstname}
+                                <input type='text' id='firstname' className='form-control' placeholder='Name' value={firstname}
                                     onChange={(e) => setFirstname(e.target.value)}></input>
                             </div>
                             <div className='input-group mb-3'>
@@ -169,7 +169,7 @@ const ShowProducts = () => {
                             </div>
                             <div className='input-group mb-3'>
                                 <span className='input-group-text'><i className='fa-solid fa-comment'></i></span>
-                                <input type='text' id='lastname' className='form-control' placeholder='imagen' value={img}
+                                <input type='text' id='imagen' className='form-control' placeholder='imagen' value={img}
                                     onChange={(e) => setImg(e.target.value)}></input>
                             </div>
                             <div className='d-grid col-6 mx-auto'>
