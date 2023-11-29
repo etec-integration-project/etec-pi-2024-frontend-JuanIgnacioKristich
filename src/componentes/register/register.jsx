@@ -17,7 +17,8 @@ export default function Register() {
       try {
         await axios.post("http://localhost:3000/api/users",{Email,Password,firstname})
         alert("cuenta creada exitosamente")
-        
+        window.location.href= "http://localhost:3001/login"
+
       } catch (error) {
         alert("no se pudo crear la cuenta")
         
