@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { show_alert } from '../../functions';
 
+import "./cat_cel.css"
+
 const ShowProducts = () => {
     const url = "http://localhost:3000/api/products/";
     const [prod, setProducts] = useState([]);
@@ -105,7 +107,7 @@ const ShowProducts = () => {
 
     return (
         <div className='App'>
-            <div className='container-fluid'>
+            <div className='add_products'>
                 <div className='row mt-3'>
                     <div className='col-md-4 offset-md-4'>
                         <div className='d-grid mx-auto'>
@@ -115,9 +117,9 @@ const ShowProducts = () => {
                         </div>
                     </div>
                 </div>
-                <div className='row mt-3'>
-                    <div className='col-12 col-lg-8 offset-0 offset-lg-2'>
-                        <div className='table-responsive'>
+                {/* <div className='row mt-3'> */}
+                    {/* <div className='col-12 col-lg-8 offset-0 offset-lg-2'> */}
+                        {/* <div className='table-responsive'> */}
                             {/* <table className='table table-bordered'>
                                 <thead>
                                     <tr><th>#</th><th>First Name</th><th>Last Name</th><th>Img</th><th></th></tr>
@@ -144,17 +146,17 @@ const ShowProducts = () => {
                                     }
                                 </tbody>
                             </table> */}
-                        </div>
-                    </div>
-                </div>
+                        {/* </div> */}
+                    {/* </div> */}
+                {/* </div> */}
             </div>
             <div id='modalProducts' className='modal fade' aria-hidden='true'>
                 <div className='modal-dialog'>
                     <div className='modal-content'>
-                        <div className='modal-header'>
+                        {/* <div className='modal-header'>
                             <label className='h5'>{title}</label>
                             <button type='button' className='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>
+                        </div> */}
                         <div className='modal-body'>
                             <input type='hidden' id='id'></input>
                             <div className='input-group mb-3' >

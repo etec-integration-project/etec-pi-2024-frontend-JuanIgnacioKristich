@@ -1,6 +1,12 @@
+
+
+
+
+
 import "./login.css"
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 
 
 function LoginForm() {
@@ -76,3 +82,60 @@ function LoginForm() {
 }
 
 export default LoginForm;
+
+
+// import React, { useState } from "react";
+// import "./login.css";
+// import {Link} from 'react-router-dom';
+// import axios from "axios";
+
+
+
+// export default function Login() {
+//   const [Email, firstname]=useState("")
+//   const [Password, contraseña] =useState("")
+//   const login = async (e) =>{
+//     e.preventDefault()
+//     try {
+//       await axios.get("http://localhost:3000/api/users",{Email,Password})
+//       alert("inicio de sesion exitoso")
+      
+      
+//     } catch (error) {
+//       alert("no se pudo iniciar sesion")
+      
+
+      
+//     }
+//   }
+
+//   return (
+//     <div className="login-container">
+//       <form className="login-form" action="#" method="post">
+//         <h2>Iniciar Sesión</h2>
+//         <div className="input-container">
+//           <label htmlFor="nombre">Nombre</label>
+//           <input type="text" id="nombre" name="nombre" value ={Email} onChange={(e) => firstname (e.target.value)} required />
+//         </div>
+        
+//         <div className="input-container">
+//           <label htmlFor="contrasena">Contraseña</label>
+//           <input type="password" id="contrasena" name="contrasena" value ={Password} onChange={(e) => contraseña (e.target.value)} required />
+//         </div>
+        
+
+//         <div className ="botoneslogin">
+//           <button type="submit"  onClick ={login}>Iniciar Sesión  </button>
+//           <Link to='/register'>
+//             <button type="submit">Crear cuenta </button>
+          
+//           </Link>
+
+
+//         </div>
+        
+        
+//       </form>
+//     </div>
+//   );
+// }

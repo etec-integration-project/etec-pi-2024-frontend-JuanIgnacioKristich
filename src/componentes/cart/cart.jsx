@@ -5,14 +5,15 @@ import { Link } from 'react-router-dom';
 import { dataContext } from '../context/DataContext';
 import axios from "axios"
 
+
+
 const Cart = () => {
 
-  const {cart} = useContext(dataContext)
+  const {cart, setCart} = useContext(dataContext)
 
+  const [cartItems, setCartItems] = useState([]);
 
-    const [cartItems, setCartItems] = useState([]);
-
-  const filteredCart = Object.values(cartItems).map(({ id, quantity }) => ({ id, quantity }));
+  const filteredCart = Object.values(setCart).map(({ id, quantity }) => ({ id, quantity }));
 
   const jsonifiedCart = JSON.stringify(filteredCart);
 

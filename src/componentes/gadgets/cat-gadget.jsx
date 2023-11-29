@@ -7,7 +7,7 @@ import  airpod_gen2 from "../../multimedia/airpod-gen2.png"
 export default function Cat_Gadget(){
     return <>
         <main class="main_1">
-            <div class="Producto-gad">
+            {/* <div class="Producto-gad">
                 <img src={airpod_max} alt="" class="producto-cat-gad"/><button ><a href="#"></a> Airpods Max</button>
             </div>
 
@@ -25,6 +25,11 @@ export default function Cat_Gadget(){
             
             <div class="Producto-gad">
                 <img src={airpod_gen2} alt="" class="producto-cat-gad"/><button ><a href="#"></a> Celulares</button>
+            </div> */}
+            <div>
+                <h1>
+                    Pagina en mantenimiento 
+                </h1>
             </div>
             
         </main>
