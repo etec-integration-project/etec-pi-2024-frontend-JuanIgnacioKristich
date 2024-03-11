@@ -4,21 +4,28 @@ import cart from "../../multimedia/shopping_cart.png"
 import logo from "../../multimedia/KR-store-logo.png"
 import upload from '../../multimedia/cloud_upload_FILL0_wght400_GRAD0_opsz24.png'
 import { Link } from 'react-router-dom';
-export default function Header(){
-    return(
+import ComboBox from "./search"
+
+
+export default function Header() {
+    return (
 
         <header>
             <nav>
                 <h1>
-                    <Link to="/"><img class="logo_kr" src={logo} alt="APP LOGO"/></Link>
+                    <Link to="/"><img class="logo_kr" src={logo} alt="APP LOGO" /></Link>
                 </h1>
                 <ul class="nav_list">
-                    <li class="nav_link"><img src={""} alt=""/></li> 
-                    <li class="nav_link"><Link to="/login"><img src={acount_circle} alt=""/></Link></li>
-                    <li class="nav_link"><Link to ="/Cart"><img src={cart} alt=""/></Link></li>
-                    <li class="nav_link" id='upload' ><Link to ="/ShowProducts" ><img src={upload} alt="" /></Link> </li>
+                    <li class="nav_link">
+                        <ComboBox>
+
+                        </ComboBox>
+                    </li>
+                    <li class="nav_link"><Link to="/login"><img src={acount_circle} alt="" /></Link></li>
+                    <li class="nav_link"><Link to="/Cart"><img src={cart} alt="" /></Link></li>
+                    <li class="nav_link" id='upload' ><Link to="/ShowProducts" ><img src={upload} alt="" /></Link> </li>
                 </ul>
-            </nav> 
+            </nav>
         </header>
     )
 }
