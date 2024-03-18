@@ -20,3 +20,5 @@ Una vez que se ha generado la secuencia completa, ChatGPT devuelve la respuesta 
 La respuesta se basa en el contexto proporcionado en el prompt y en el conocimiento previo del modelo.
 El objetivo es generar respuestas coherentes y relevantes, aunque el modelo no siempre tiene acceso a información actualizada o precisa.
 En resumen, ChatGPT utiliza un enfoque de predicción secuencial para generar respuestas basadas en el contexto y su entrenamiento previo. Si tienes más preguntas, no dudes en hacerlas. 😊
+
+Una palabra del prompt se refiere a una sola unidad léxica o token en el texto que proporcionas como entrada. En el contexto de procesamiento de lenguaje natural, una palabra puede ser un término individual, un signo de puntuación o incluso un número. Por ejemplo, en la frase “Hola, ¿cómo estás?”, hay cuatro palabras del prompt: “Hola”, “,”, “¿cómo” y “estás”. Cada una de estas palabras contribuye al contexto y ayuda al modelo a generar respuestas coherentes.
