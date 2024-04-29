@@ -1,14 +1,33 @@
 
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import Autocomplete from '@mui/material/Autocomplete';  
+import * as tf from '@tensorflow/tfjs';
+
+let model;
+async function loadModel() {
+  model = await tf.loadLayersModel('../../../public/autocorrect_model.json');
+}
+loadModel();
+
+async function predict(data) {
+  // Asegúrate de que tus datos estén en el formato correcto
+  const tensorData = tf.tensor(data);
+
+  // Usa el modelo para hacer la predicción
+  const prediction = model.predict(tensorData);
+
+  // Imprime la predicción
+  prediction.print(model);
+}
 
 export default function ComboBox() {
   return (
+
     <Autocomplete
       disablePortal
       id="combo-box-demo"
-      options={top100Films}
+      options={predict()}
       sx={{ width: 300 }}
       renderInput={(params) => <TextField {...params} label="Movie" />}
     />
