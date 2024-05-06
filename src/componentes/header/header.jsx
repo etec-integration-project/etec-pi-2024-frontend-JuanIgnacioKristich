@@ -4,8 +4,7 @@ import cart from "../../multimedia/shopping_cart.png"
 import logo from "../../multimedia/KR-store-logo.png"
 import upload from '../../multimedia/cloud_upload_FILL0_wght400_GRAD0_opsz24.png'
 import { Link } from 'react-router-dom';
-import ComboBox from "./search"
-
+import { setup } from "./integracion/search";
 
 export default function Header() {
     return (
@@ -17,9 +16,8 @@ export default function Header() {
                 </h1>
                 <ul class="nav_list">
                     <li class="nav_link">
-                        <ComboBox>
-
-                        </ComboBox>
+                        <input type="text" placeholder="Search ..." id="filled-basic" />
+                        <span id="pred_labels"></span>
                     </li>
                     <li class="nav_link"><Link to="/login"><img src={acount_circle} alt="" /></Link></li>
                     <li class="nav_link"><Link to="/Cart"><img src={cart} alt="" /></Link></li>
