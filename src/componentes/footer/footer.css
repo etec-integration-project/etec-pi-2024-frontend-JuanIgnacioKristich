@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+
+}
+
+footer{
+    width: 100vw ;
+    max-height: auto;
+
+    background-color: rgb(33, 42, 62);
+    position: relative;
+    bottom: 0;
+}
+
+
+.contacto-footer li{
+    font-size: 20px;
+    display: inline;
+    margin-right: 5px;
+    
+}
+
+.contacto-footer img{
+    margin: 5px;
+    padding: 5px;
+    max-width: 50px;
+    float: right, center;
+
+}
+
