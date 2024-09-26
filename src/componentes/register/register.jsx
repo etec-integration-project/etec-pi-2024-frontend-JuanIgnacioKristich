@@ -15,9 +15,9 @@ export default function Register() {
     e.preventDefault()
     if (Password === repeatPassword){
       try {
-        await axios.post("http://localhost:3000/api/users",{Email,Password,firstname})
+        await axios.post("http://localhost:5000/api/users",{Email,Password,firstname})
         alert("cuenta creada exitosamente")
-        window.location.href= "http://localhost:3001/login"
+        window.location.href= "http://localhost:3000/login"
 
       } catch (error) {
         alert("no se pudo crear la cuenta")

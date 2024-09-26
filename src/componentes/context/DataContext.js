@@ -11,7 +11,7 @@ const DataProvider = ({children}) => {
 
     useEffect (()=> {
         // axios("data.json").then((res)=> setData(res.data))
-        axios.get("http://localhost:3000/api/products/").then((res)=> setData(res.data))
+        axios.get("http://localhost:5000/api/products/").then((res)=> setData(res.data))
 
     }, [])
 

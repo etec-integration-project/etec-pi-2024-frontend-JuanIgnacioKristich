@@ -20,7 +20,7 @@ const Cart = () => {
   const handleCart = async () => {
       if (jsonifiedCart !== "[]") {
           try {
-              await axios.post('http://localhost:3000/api/cart', {jsonifiedCart});
+              await axios.post('http://localhost:5000/api/cart', {jsonifiedCart});
   
               alert('Articulos comprados con exito');
           } catch (err) {

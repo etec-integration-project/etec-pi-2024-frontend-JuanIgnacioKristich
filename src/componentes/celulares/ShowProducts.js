@@ -7,7 +7,7 @@ import { show_alert } from '../../functions';
 import "./cat_cel.css"
 
 const ShowProducts = () => {
-    const url = "http://localhost:3000/api/products/";
+    const url = "http://localhost:5000/api/products/";
     const [prod, setProducts] = useState([]);
     const [id, setId] = useState('');
     const [firstname, setFirstname] = useState('');

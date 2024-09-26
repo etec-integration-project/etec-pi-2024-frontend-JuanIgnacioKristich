@@ -97,9 +97,9 @@ export default function Login() {
   const login = async (e) =>{
     e.preventDefault()
     try {
-      await axios.post("http://localhost:3000/api/login",{Email,Password})
+      await axios.post("http://localhost:5000/api/login",{Email,Password})
       alert("inicio de sesion exitoso")
-      window.location.href= "http://localhost:3001/"
+      window.location.href= "http://localhost:5001/"
       
     } catch (error) {
       alert("no se pudo iniciar sesion")
