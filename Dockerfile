@@ -1,32 +1,18 @@
-# Base image
-FROM node:18-alpine as build
+# Usa una imagen base de Node.js
+FROM node:18-alpine
 
-# Set working directory
+# Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copia los archivos necesarios y ejecuta npm install
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy the rest of the app
+# Copia el resto del código fuente
 COPY . .
 
-# Build the React app
-RUN npm run build
+# Exponer el puerto en el que el frontend corre
+EXPOSE 3000
 
-# Use an NGINX image to serve the build
-FROM nginx:alpine
-
-# Copy custom NGINX config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy the build files to the NGINX folder
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Expose the port
-EXPOSE 80
-
-# Start NGINX
-CMD ["nginx", "-g", "daemon off;"]
+# Comando para iniciar la aplicación
+CMD ["npm", "start"]
