@@ -278,7 +278,7 @@ async function create_model(max_len,alpha_len){
 
 async function loadModelFromFile() {
     try {
-        const modelUrl = 'http://localhost:3000/autocorrect_model.json'
+        const modelUrl = 'http://process.env.REACT_APP_BACKEND_URL:3000/autocorrect_model.json'
 
         return await tf.loadLayersModel(tf.io.browserHTTPRequest(modelUrl));
     } catch (error) {

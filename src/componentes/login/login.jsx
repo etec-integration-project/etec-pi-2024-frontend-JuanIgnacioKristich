@@ -97,9 +97,9 @@ export default function Login() {
   const login = async (e) =>{
     e.preventDefault()
     try {
-      await axios.post("http://localhost:5000/api/login",{Email,Password})
+      await axios.post("http://process.env.REACT_APP_BACKEND_URL:5000/api/login",{Email,Password})
       alert("inicio de sesion exitoso")
-      window.location.href= "http://localhost:5001/"
+      window.location.href= "http://process.env.REACT_APP_BACKEND_URL:5001/"
       
     } catch (error) {
       alert("no se pudo iniciar sesion")
