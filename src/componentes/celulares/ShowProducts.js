@@ -7,7 +7,7 @@ import { show_alert } from '../../functions';
 import "./cat_cel.css"
 
 const ShowProducts = () => {
-    const url = "http://process.env.REACT_APP_BACKEND_URL:5000/api/products/";
+    const url = `http://${process.env.REACT_APP_BACKEND_URL}:5000/api/products/`;
     const [prod, setProducts] = useState([]);
     const [id, setId] = useState('');
     const [firstname, setFirstname] = useState('');

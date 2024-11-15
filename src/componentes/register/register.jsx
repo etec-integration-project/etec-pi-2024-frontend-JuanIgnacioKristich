@@ -15,7 +15,7 @@ export default function Register() {
     e.preventDefault()
     if (Password === repeatPassword){
       try {
-        await axios.post("http://process.env.REACT_APP_BACKEND_URL:5000/api/users",{Email,Password,firstname})
+        await axios.post(`http://${process.env.REACT_APP_BACKEND_URL}:5000/api/users`,{Email,Password,firstname})
         alert("cuenta creada exitosamente")
         window.location.href= "http://process.env.REACT_APP_BACKEND_URL:3000/login"
 
