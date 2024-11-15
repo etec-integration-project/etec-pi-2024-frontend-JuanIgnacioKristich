@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./register.css";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import BACKEND from "../../config";
 
 
 export default function Register() {
@@ -15,9 +16,11 @@ export default function Register() {
     e.preventDefault()
     if (Password === repeatPassword){
       try {
-        await axios.post(`http://${process.env.REACT_APP_BACKEND_URL}:5000/api/users`,{Email,Password,firstname})
+        console.log("peticion")
+        await axios.post(`${BACKEND}/users`,{Email,Password,firstname})
+        console.log("peticion")
         alert("cuenta creada exitosamente")
-        window.location.href= "http://process.env.REACT_APP_BACKEND_URL:3000/login"
+        window.location.href= `/login`
 
       } catch (error) {
         alert("no se pudo crear la cuenta")

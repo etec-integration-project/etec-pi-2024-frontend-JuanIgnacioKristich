@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-
+import BACKEND from "../../config";
 import axios from "axios";
 
 export const dataContext = createContext();
@@ -9,9 +9,9 @@ const DataProvider = ({children}) => {
     const [data, setData] = useState ([]);
     const [cart, setCart] = useState ([]);
 
-    useEffect (()=> {
-        // axios("data.json").then((res)=> setData(res.data))
-        axios.get("http://process.env.REACT_APP_BACKEND_URL:5000/api/products/").then((res)=> setData(res.data))
+    useEffect (()=> {  
+
+        axios.get(`${BACKEND}/products/`).then((res)=> setData(res.data))
 
     }, [])
 

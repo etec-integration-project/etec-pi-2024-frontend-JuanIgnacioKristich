@@ -3,11 +3,12 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { show_alert } from '../../functions';
-
+import BACKEND from '../../config';
 import "./cat_cel.css"
 
 const ShowProducts = () => {
-    const url = `http://${process.env.REACT_APP_BACKEND_URL}:5000/api/products/`;
+    const url = `http://${BACKEND}/api/products/`;
+    console.log (url)
     const [prod, setProducts] = useState([]);
     const [id, setId] = useState('');
     const [firstname, setFirstname] = useState('');
@@ -21,10 +22,10 @@ const ShowProducts = () => {
     }, []);
     
     const getProducts = async () => {
-        const response = await axios.get(url);
+        const response = await axios.get(`${BACKEND}/products`);
         setProducts(response.data);
     }
- 
+
 
     const openModal = (op, id, firstname, Price) => {
         setId('');
