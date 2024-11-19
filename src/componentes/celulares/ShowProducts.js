@@ -7,7 +7,7 @@ import BACKEND from '../../config';
 import "./cat_cel.css"
 
 const ShowProducts = () => {
-    const url = `http://${BACKEND}/api/products/`;
+    const url = `http://${BACKEND}/products`;
     console.log (url)
     const [prod, setProducts] = useState([]);
     const [id, setId] = useState('');

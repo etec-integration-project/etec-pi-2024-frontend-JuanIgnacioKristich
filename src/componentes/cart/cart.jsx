@@ -20,7 +20,7 @@ const Cart = () => {
   const handleCart = async () => {
       if (jsonifiedCart !== "[]") {
           try {
-              await axios.post('http://process.env.REACT_APP_BACKEND_URL:5000/api/cart', {jsonifiedCart});
+            await axios.post((`${BACKEND}/cart`, {jsonifiedCart}));
   
               alert('Articulos comprados con exito');
           } catch (err) {

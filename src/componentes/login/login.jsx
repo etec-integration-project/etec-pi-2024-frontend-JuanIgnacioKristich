@@ -88,7 +88,7 @@ import React, { useState } from "react";
 import "./login.css";
 import {Link} from 'react-router-dom';
 import axios from "axios";
-
+import BACKEND from "../../config";
 
 
 export default function Login() {
@@ -97,9 +97,9 @@ export default function Login() {
   const login = async (e) =>{
     e.preventDefault()
     try {
-      await axios.post("http://process.env.REACT_APP_BACKEND_URL:5000/api/login",{Email,Password})
+      await axios.post(`${BACKEND}/login`,{Email,Password,})
       alert("inicio de sesion exitoso")
-      window.location.href= "http://process.env.REACT_APP_BACKEND_URL:5001/"
+      window.location.href= "/"
       
     } catch (error) {
       alert("no se pudo iniciar sesion")
