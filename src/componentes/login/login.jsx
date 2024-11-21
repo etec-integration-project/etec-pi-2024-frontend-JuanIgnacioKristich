@@ -114,7 +114,7 @@ export default function Login() {
       <form className="login-form" action="#" method="post">
         <h2>Iniciar Sesión</h2>
         <div className="input-container">
-          <label htmlFor="nombre">Nombre</label>
+          <label htmlFor="nombre">Email</label>
           <input type="text" id="nombre" name="nombre" value ={Email} onChange={(e) => firstname (e.target.value)} required />
         </div>
         
