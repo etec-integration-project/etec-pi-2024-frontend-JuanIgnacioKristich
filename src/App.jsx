@@ -18,6 +18,9 @@ import ShowProducts from './componentes/celulares/ShowProducts';
 
 
 function App() {
+  
+  localStorage.setItem('productos', JSON.stringify([]))
+
   return (
     <div className="App">
       <DataProvider>
