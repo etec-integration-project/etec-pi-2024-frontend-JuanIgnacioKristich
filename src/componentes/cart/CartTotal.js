@@ -1,15 +1,17 @@
-import { useContext } from "react";
-import { dataContext } from "../context/DataContext";
-
+import { useEffect, useState } from "react";
 
 const CartTotal = () => {
-  const {cart} = useContext(dataContext);
+  const [total, setTotal] = useState(0);
 
-  const total = cart.reduce((acc,el) => acc + el.price, 0)
-  
-    return <div className="cartTotal">
-        <h3>total a pagar: {total}$</h3>
-    </div>
+  useEffect(() => {
+    const carrito = JSON.parse(localStorage.getItem('productos')) || [];
+    const total = carrito.reduce((acc, el) => acc + el.price * el.quantity, 0);
+    setTotal(total);
+  }, []);
+
+  return <div className="cartTotal">
+      <h3>total a pagar: {total}$</h3>
+  </div>
 }
 
-export default CartTotal
+export default CartTotal;

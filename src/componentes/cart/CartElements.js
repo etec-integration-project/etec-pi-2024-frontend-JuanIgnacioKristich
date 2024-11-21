@@ -3,6 +3,7 @@ import { dataContext } from "../context/DataContext";
 import "./cart.css"
 import React from 'react'
 import Productos from "../productos/Productos";
+import BACKEND from "../../config";
 
 function CartElements() {
 
@@ -20,25 +21,49 @@ function CartElements() {
 
   function añadirUnaUnidad(id) {
     const newCart = myCart.map(product => {
-      if (product.id === id) {
-        return { ...product, quantity: product.quantity + 1 };
-      }
-      return product;
+        if (product.id === id) {
+            return { ...product, quantity: product.quantity + 1 };
+        }
+        return product;
     });
     actualizarCarrito(newCart);
-  }
+    
+    // Actualizar en el backend
+    const userId = 1; // Obtenlo según la lógica de autenticación
+    fetch(`${BACKEND}/add`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId, items: [{ productId: id, quantity: 1 }] })
+    })
+    .catch(error => console.error('Error actualizando el carrito en el backend:', error));
+}
 
   function restarUnaUnidad(id) {
     const newCart = myCart
-      .map(product => {
-        if (product.id === id) {
-          return { ...product, quantity: product.quantity - 1 };
-        }
-        return product;
-      })
-      .filter(product => product.quantity > 0); // Elimina productos con cantidad 0
+        .map(product => {
+            if (product.id === id) {
+                return { ...product, quantity: product.quantity - 1 };
+            }
+            return product;
+        })
+        .filter(product => product.quantity > 0);
     actualizarCarrito(newCart);
+
+    // Actualizar en el backend
+    const userId = 1; // Obtenlo según la lógica de autenticación
+    fetch(`${BACKEND}/add`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId, items: [{ productId: id, quantity: -1 }] })
+    })
+    .catch(error => console.error('Error actualizando el carrito en el backend:', error));
   }
+
+
 
   function eliminarProducto(id) {
     const newCart = myCart.filter(product => product.id !== id);

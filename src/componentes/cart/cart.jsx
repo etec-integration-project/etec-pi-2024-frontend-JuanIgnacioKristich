@@ -18,7 +18,7 @@ const Cart = () => {
     if (myCart.length > 0) {
       try {
         // Enviar el carrito al backend con los productos y cantidades
-        const response = await axios.post(`${BACKEND}/cart/add`, { cartItems: myCart });
+        const response = await axios.post(`${BACKEND}/buy`, { cartItems: myCart });
 
         // Verificar la respuesta del servidor
         if (response.status === 200) {
