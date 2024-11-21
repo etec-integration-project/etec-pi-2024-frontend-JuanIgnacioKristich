@@ -7,7 +7,7 @@ import BACKEND from '../../config';
 import "./cat_cel.css"
 
 const ShowProducts = () => {
-    const url = `http://${BACKEND}/products`;
+    const url = `${BACKEND}/products`;
     console.log (url)
     const [prod, setProducts] = useState([]);
     const [id, setId] = useState('');
@@ -27,84 +27,96 @@ const ShowProducts = () => {
     }
 
 
-    const openModal = (op, id, firstname, Price) => {
-        setId('');
-        setFirstname('');
-        setPrice('');
-        setImg('');
-        setOperation(op);
-        if (op === 1) {
-            setTitle('Añadir Producto');
-        }
-        else if (op === 2) {
-            setTitle('Editar Producto');
-            setId(id);
-            setFirstname(firstname);
-            setPrice(Price);
-            setImg(img);
-        }
-        window.setTimeout(function () {
-            document.getElementById('firstname').focus();
-        }, 500);
-    }
+    // const openModal = (op, id, firstname, Price) => {
+    //     setId('');
+    //     setFirstname('');
+    //     setPrice('');
+    //     setImg('');
+    //     setOperation(op);
+    //     if (op === 1) {
+    //         setTitle('Añadir Producto');
+    //     }
+    //     else if (op === 2) {
+    //         setTitle('Editar Producto');
+    //         setId(id);
+    //         setFirstname(firstname);
+    //         setPrice(Price);
+    //         setImg(img);
+    //     }
+    //     window.setTimeout(function () {
+    //         document.getElementById('firstname').focus();
+    //     }, 500);
+    // }
 
     const validar = () => {
-        var parametros;
-        var metodo;
+        let parametros;
+        let metodo;
+    
+        // Validaciones de los campos
         if (firstname.trim() === '') {
-            show_alert('Escribe el firstname del usuario', 'warning');
+            show_alert('Escribe el nombre del producto', 'warning');
+            return;
+        } else if (Price === '' || isNaN(Number(Price))) {
+            show_alert('Escribe un precio válido para el producto', 'warning');
+            return;
+        } else if (img.trim() === '') {
+            show_alert('Escribe una URL de imagen válida', 'warning');
+            return;
         }
-        else if (Price.trim() === '') {
-            show_alert('Escribe el Price producto', 'warning');
+    
+        // Configurar los parámetros y método HTTP según la operación
+        if (operation === 1) { // Añadir producto
+            parametros = { firstname: firstname.trim(), Price: Number(Price), img: img.trim() };
+            metodo = 'POST';
+        } else { // Editar producto
+            parametros = { id: id, firstname: firstname.trim(), Price: Number(Price), img: img.trim() };
+            metodo = 'PUT';
         }
-        else {
-            if (operation === 1) {
-                parametros = { firstname: firstname.trim(), Price: Price.trim(), img: img.trim() };
-                metodo = 'POST';
-            }
-            else {
-                parametros = { id: id, firstname: firstname.trim(), Price: Price.trim(), img: img.trim() };
-                metodo = 'PUT';
-            }
-            enviarSolicitud(metodo, parametros);
-        }
-    }
-
+    
+        // Llamar a la función de solicitud
+        enviarSolicitud(metodo, parametros);
+    };
+    
     const enviarSolicitud = async (metodo, parametros) => {
-        console.log("metodo=", metodo);
-        console.log("parametros=", parametros);
-        await axios({ method: metodo, url: url, data: parametros })
-            .then(function (respuesta) {
-                var tipo = respuesta.data[0];
-                var msj = respuesta.data[1];
-                show_alert(msj, tipo);
-                if (tipo === 'success') {
-                    document.getElementById('btnCerrar').click();
-                    getProducts();
-                }
-            })
-            .catch(function (error) {
-                show_alert('Error en la solicitud', 'error');
-                console.log(error);
+        try {
+            const respuesta = await axios({
+                method: metodo,
+                url: `${BACKEND}/products`,
+                data: parametros,
             });
-    }
+    
+            const tipo = respuesta.data.tipo || 'success'; // Asegúrate de que el backend devuelva esta estructura
+            const msj = respuesta.data.mensaje || 'Operación realizada con éxito';
+    
+            show_alert(msj, tipo);
+    
+            if (tipo === 'success') {
+                document.getElementById('btnCerrar').click();
+                getProducts(); // Actualizar la lista de productos
+            }
+        } catch (error) {
+            show_alert('Error en la solicitud al servidor', 'error');
+            console.error(error);
+        }
+    };
+    
 
-    const deleteProduct = (id, firstname) => {
-        const MySwal = withReactContent(Swal);
-        MySwal.fire({
-            title: '¿Seguro de eliminar el usuario ' + firstname + ' ?',
-            icon: 'question', text: 'No se podrá dar marcha atrás',
-            showCancelButton: true, confirmButtonText: 'Si, eliminar', cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                setId(id);
-                enviarSolicitud('DELETE', { id: id });
-            }
-            else {
-                show_alert('El producto NO fue eliminado', 'info');
-            }
-        });
-    }
+    // const deleteProduct = (id, firstname) => {
+    //     const MySwal = withReactContent(Swal);
+    //     MySwal.fire({
+    //         title: '¿Seguro de eliminar el usuario ' + firstname + ' ?',
+    //         icon: 'question', text: 'No se podrá dar marcha atrás',
+    //         showCancelButton: true, confirmButtonText: 'Si, eliminar', cancelButtonText: 'Cancelar'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             setId(id);
+    //             enviarSolicitud('DELETE', { id: id });
+    //         }
+    //         else {
+    //             show_alert('El producto NO fue eliminado', 'info');
+    //         }
+    //     });
+    // }
 
     return (
         <div className='App'>
