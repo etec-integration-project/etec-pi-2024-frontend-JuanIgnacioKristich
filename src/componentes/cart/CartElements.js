@@ -1,8 +1,6 @@
-import { useContext, useEffect, useState } from "react";
-import { dataContext } from "../context/DataContext";
+import { useEffect, useState } from "react";
 import "./cart.css"
 import React from 'react'
-import Productos from "../productos/Productos";
 import BACKEND from "../../config";
 
 function CartElements() {

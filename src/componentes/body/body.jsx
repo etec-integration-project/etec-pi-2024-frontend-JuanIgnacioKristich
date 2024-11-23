@@ -3,7 +3,6 @@ import React from 'react'
 import iphone1 from "../../multimedia/iphone14logo.png";
 import gadget from "../../multimedia/auricular.png";
 import {Link} from 'react-router-dom';
-import Productos from '../productos/Productos';
 
 export default function Body() {
   return <>

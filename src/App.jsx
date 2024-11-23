@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './componentes/header/header';
 import Body from './componentes/body/body';
@@ -8,7 +7,6 @@ import Cat_Gadget from './componentes/gadgets/cat-gadget';
 import Register from "./componentes/register/register"
 import Login from "./componentes/login/login"
 import DataProvider from './componentes/context/DataContext';
-import Productos from './componentes/productos/Productos';
 import Cart from './componentes/cart/cart';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ShowProducts from './componentes/celulares/ShowProducts';

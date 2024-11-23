@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CartElements from './CartElements';
 import CartTotal from './CartTotal';
-import { Link } from 'react-router-dom';
 import BACKEND from '../../config';
-import { dataContext } from '../context/DataContext';
 import axios from "axios";
 
 const Cart = () => {

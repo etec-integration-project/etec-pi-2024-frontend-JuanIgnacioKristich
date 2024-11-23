@@ -9,9 +9,9 @@ export default function Footer(){
         <footer>
         <div class="contacto-footer">
             <ul>
-                <li class=""><a href=""><img src={ig_logo} alt=""/></a></li>
-                <li class=""><a href=""><img src={twitter_logo} alt=""/></a></li>
-                <li class=""><a href=""><img src={whatsapp_logo} alt=""/></a></li>
+                <li class=""><a ><img src={ig_logo} alt=""/></a></li>
+                <li class=""><a ><img src={twitter_logo} alt=""/></a></li>
+                <li class=""><a ><img src={whatsapp_logo} alt=""/></a></li>
             </ul>
         </div>
 
