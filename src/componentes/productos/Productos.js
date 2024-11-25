@@ -5,7 +5,7 @@ import "./Productos.css";// Asegúrate de que la ruta es correcta
 import BACKEND from '../../config';
 
 export const Productos = () => {
-    const { data, cart, setCart } = useContext(dataContext); 
+    const { data } = useContext(dataContext); 
 
     // Función para manejar la compra de productos
     // const buyProducts = async (producto) => {

@@ -5,37 +5,33 @@ import Footer from "./componentes/footer/footer"
 import Cat_Celulares from './componentes/celulares/cat_cel';
 import Cat_Gadget from './componentes/gadgets/cat-gadget';
 import Register from "./componentes/register/register"
-import Login from "./componentes/login/login"
+import LoginForm from "./componentes/login/login"
 import DataProvider from './componentes/context/DataContext';
 import Cart from './componentes/cart/cart';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ShowProducts from './componentes/celulares/ShowProducts';
-
-
-
-
+import LocalStorageController from './componentes/login/LocalStorageController';
 
 function App() {
-  
-  localStorage.setItem('productos', JSON.stringify([]))
+
+  // Inicializamos la lógica de localStorage
+  const localStorageUtils = LocalStorageController();
 
   return (
     <div className="App">
       <DataProvider>
 
         <BrowserRouter>
-        
           <Routes>
-
             <Route
               path="/"
               element={
                 <>
                   <Header />
                   <Body />
-                  <Footer/>
+                  <Footer />
                 </>
-            }>
+              }>
             </Route>
 
             <Route
@@ -44,23 +40,20 @@ function App() {
                 <>
                   <Header />
                   <Cat_Celulares />
-                  <Footer/>
+                  <Footer />
                 </>
-            }>
+              }>
             </Route>
 
             <Route
               path="/Register"
               element={
                 <>
-                <Header />
-                <Register/>
-                <Footer/>
+                  <Header />
+                  <Register />
+                  <Footer />
                 </>
-              }
-            >
-              
-
+              }>
             </Route>
 
             <Route
@@ -68,10 +61,10 @@ function App() {
               element={
                 <>
                   <Header />
-                  <Cat_Gadget />
-                  <Footer/>
+                  {/* <Cat_Gadget /> */}
+                  <Footer />
                 </>
-            }>
+              }>
             </Route>
 
             <Route
@@ -79,21 +72,21 @@ function App() {
               element={
                 <>
                   <Header />
-                  <Login />
-                  <Footer/>
+                  <LoginForm saveUserSession={localStorageUtils.saveUserSession} />
+                  <Footer />
                 </>
-            }>
+              }>
             </Route>
-            
+
             <Route
               path="/Cart"
               element={
                 <>
                   <Header />
                   <Cart />
-                  <Footer/>
+                  <Footer />
                 </>
-            }>
+              }>
             </Route>
 
             <Route
@@ -102,19 +95,16 @@ function App() {
                 <>
                   <Header />
                   <ShowProducts />
-                  <Footer/>
+                  <Footer />
                 </>
-            }>
+              }>
             </Route>
 
           </Routes>
-        
         </BrowserRouter>
 
       </DataProvider>
-
     </div>
-
   );
 }
 

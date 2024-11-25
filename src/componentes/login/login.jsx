@@ -1,141 +1,79 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import BACKEND from '../../config';
+import './login.css';
 
+const LoginForm = ({ saveUserSession }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-
-
-
-// import "./login.css"
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-
-
-
-// function LoginForm() {
-//   const [formData, setFormData] = useState({
-//     usernameOrEmail: '',
-//     password: '',
-//   });
-
-//   const [showPassword, setShowPassword] = useState(false);
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Aquí puedes agregar la lógica para enviar los datos al servidor para la validación en el back-end
-//     console.log('Datos de inicio de sesión:', formData);
-//   };
-
-//   const toggleShowPassword = () => {
-//     setShowPassword(!showPassword);
-//   };
-
-//   return (
-//     <div className="login-form-container">
-//       <h2>Iniciar Sesión</h2>
-//       <form onSubmit={handleSubmit} className="login-form">
-//         <div className="form-group">
-//           <label htmlFor="usernameOrEmail">Nombre de Usuario o Email:</label>
-//           <input
-//             type="text"
-//             id="usernameOrEmail"
-//             name="usernameOrEmail"
-//             value={formData.usernameOrEmail}
-//             onChange={handleChange}
-//             required
-//           />
-//         </div>
-//         <div className="form-group">
-//           <label htmlFor="password">Contraseña:</label>
-//           <input
-//             type={showPassword ? 'text' : 'password'}
-//             id="password"
-//             name="password"
-//             value={formData.password}
-//             onChange={handleChange}
-//             required
-//           />
-          
-          
-//         </div>
-
-//         <button type="button" onClick={toggleShowPassword}>
-//             Mostrar Contraseña
-//         </button>
-
-//         <Link to="/">
-//         <button type="submit">Iniciar Sesión</button>
-//         </Link>
-        
-//       </form>
-//       <p>
-//         ¿No tienes una cuenta?{' '}
-//         <Link to="/Register">Regístrate aquí</Link>
-//       </p>
-//     </div>
-//   );
-// }
-
-// export default LoginForm;
-
-
-import React, { useState } from "react";
-import "./login.css";
-import {Link} from 'react-router-dom';
-import axios from "axios";
-import BACKEND from "../../config";
-
-
-export default function Login() {
-  const [Email, firstname]=useState("")
-  const [Password, contraseña] =useState("")
-  const login = async (e) =>{
-    e.preventDefault()
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      await axios.post(`${BACKEND}/login`,{Email,Password,})
-      alert("inicio de sesion exitoso")
-      window.location.href= "/"
-      
-    } catch (error) {
-      alert("no se pudo iniciar sesion")
-      
+      // Hacemos la solicitud al backend para el login
+      const response = await axios.post(`${BACKEND}/login`, {
+        email: email,
+        password: password,
+      });
 
-      
+      console.log('Respuesta del servidor completa:', response);
+
+      if (response.data && response.data.mensaje === 'ingreso correcto' && response.data.token) {
+        const token = response.data.token;
+
+        // Guardamos el token del usuario en localStorage
+        console.log('Token recibido correctamente del servidor:', token);
+        localStorage.setItem('userToken', token);
+        saveUserSession(token);
+        alert('Bienvenido');
+      } else {
+        setError('Error: No se recibió el token esperado. Verifica la consola para más detalles.');
+        console.error('Estructura incorrecta en la respuesta:', response.data);
+      }
+    } catch (error) {
+      console.error('Error durante el login:', error);
+      setError('Credenciales inválidas. Intenta de nuevo.');
     }
-  }
+  };
+
+  const handleLogout = () => {
+    console.log('Cerrando sesión y limpiando localStorage.');
+    localStorage.removeItem('userToken');
+    window.location.reload();
+  };
 
   return (
     <div className="login-container">
-      <form className="login-form" action="#" method="post">
+      <div className="login-card">
         <h2>Iniciar Sesión</h2>
-        <div className="input-container">
-          <label htmlFor="nombre">Email</label>
-          <input type="text" id="nombre" name="nombre" value ={Email} onChange={(e) => firstname (e.target.value)} required />
+        <form onSubmit={handleLogin}>
+          <div className="input-container">
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-container">
+            <label>Contraseña:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          {error && <p className="error-message">{error}</p>}
+          <button type="submit" className="login-button">Iniciar sesión</button>
+          <button onClick={() => window.location.href = '/register'} className="login-button">Registrarse</button>
+          <button onClick={handleLogout} className="logout-button">Cerrar sesión</button>
+          </form>
         </div>
-        
-        <div className="input-container">
-          <label htmlFor="contrasena">Contraseña</label>
-          <input type="password" id="contrasena" name="contrasena" value ={Password} onChange={(e) => contraseña (e.target.value)} required />
-        </div>
-        
-
-        <div className ="botoneslogin">
-          <button type="submit"  onClick ={login}>Iniciar Sesión  </button>
-          <Link to='/register'>
-            <button type="submit">Crear cuenta </button>
-          
-          </Link>
-
-
-        </div>
-        
-        
-      </form>
-    </div>
+      </div>
   );
-}
+};
+
+export default LoginForm;
