@@ -1,53 +1,95 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
-
+    box-sizing: border-box;
 }
 
-header{
+header {
+    padding: 10px 20px;
+    background-color: rgb(33, 42, 62);
+}
+
+nav {
+    display: flex;
     align-items: center;
-    text-decoration: none;
-    padding: 10px;
-    background-color: rgb(33, 42, 62) ;
-
-}
- 
-.navbar.navbar-expand-lg.bg-body-tertiary{
-    background-color: transparent !important;
-
+    justify-content: space-between;
 }
 
-.logo_kr{
+.logo_kr {
     max-width: 100px;
     border-radius: 30px;
 }
 
-
-
-
-nav{
+.nav_list {
     display: flex;
-    justify-content: space-between;
-    
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin-left: auto;
 }
 
-
-.nav_list{
-    padding:1rem;
-}
-
-.nav_link{
-    font-size: 20px;
-    display: inline;
+.nav_link {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    margin-right: 5px;
-    margin: 5px;
-    padding: 5px;
-
 }
-.nav_link img{
-    margin-top: 12px ;
-    display: flex, inline;
+
+
+.nav_link img {
+    margin-top: 12px;
+    display: flex;
     justify-content: center;
+    max-width: 50px; /* Ajusta el tamaño aquí */
+    max-height: 50px; /* Ajusta el tamaño aquí */
+}
+
+
+.logout-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.logout-button:hover {
+    background-color: #0056b3;
+}
+
+#filled-basic {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav_list {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+        margin-left: 0;
+    }
+
+    .nav_link img,
+    #filled-basic,
+    .logout-button {
+        width: 100%;
+    }
+
+    #filled-basic {
+        max-width: 200px;
+    }
+
+    .logout-button {
+        max-width: 200px;
+    }
 }

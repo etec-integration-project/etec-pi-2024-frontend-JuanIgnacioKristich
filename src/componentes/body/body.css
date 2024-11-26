@@ -1,52 +1,81 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
-
+    box-sizing: border-box;
 }
- 
-body{
+
+html, body {
+    height: 100%; /* Asegurar que el `body` ocupe todo el alto de la pantalla */
+}
+
+body {
     background-color: rgb(155, 164, 181);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
-main{
+main {
     display: grid;
+    flex: 1; /* Hace que el contenedor principal tome el espacio restante */
     margin: 10px;
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: repeat(1, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     gap: 1rem;
+    justify-items: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    height: 100%;
 }
-.card{
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
+
+.card {
     display: flex;
     background-color: transparent;
-    justify-content: center !important;
+    justify-content: center;
     align-items: center;
 }
-.Producto{
+
+.Producto {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
-    max-width: 50vw;
+    width: 100%;
+    max-width: 500px; /* Aumenta el tamaño máximo de los productos */
     height: auto;
 }
 
-.Producto:hover{
-    scale: 1.02;
+.Producto:hover {
+    transform: scale(1.05); /* Incrementar ligeramente el efecto hover */
     transition: all 0.5s ease;
 }
 
-.producto-logo{
-    width: 100vw;
+.producto-logo {
+    width: 100%;
     max-height: auto;
+    max-width: 400px; /* Aumenta el tamaño máximo de la imagen */
+    height: auto;
 }
 
-.Producto img{
-    display: flex;
-    align-content: center;
-    margin: 1rem;
-    width: auto;
-    height: auto;
+@media (max-width: 480px) {
+    .Producto {
+        max-width: 100vw;
+    }
+
+    .Producto img {
+        max-width: 300px;
+    }
 }
