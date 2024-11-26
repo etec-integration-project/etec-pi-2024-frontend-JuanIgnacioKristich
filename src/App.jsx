@@ -3,7 +3,6 @@ import Header from './componentes/header/header';
 import Body from './componentes/body/body';
 import Footer from "./componentes/footer/footer"
 import Cat_Celulares from './componentes/celulares/cat_cel';
-import Cat_Gadget from './componentes/gadgets/cat-gadget';
 import Register from "./componentes/register/register"
 import LoginForm from "./componentes/login/login"
 import DataProvider from './componentes/context/DataContext';

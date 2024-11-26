@@ -27,6 +27,8 @@ const LoginForm = ({ saveUserSession }) => {
         localStorage.setItem('userToken', token);
         saveUserSession(token);
         alert('Bienvenido');
+        
+
       } else {
         setError('Error: No se recibió el token esperado. Verifica la consola para más detalles.');
         console.error('Estructura incorrecta en la respuesta:', response.data);

@@ -1,0 +1,102 @@
+/* Estilos generales para la página de productos */
+
+.add_products {
+    margin-bottom: 20px;
+}
+
+/* Estilos para los botones principales */
+.btn-dark {
+    background-color: #343a40;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #495057;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Estilos para el modal de productos */
+.modal-content {
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.modal-body {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.input-group-text {
+    background-color: #343a40;
+    color: #ffffff;
+    border: none;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Estilo para el ícono dentro del botón */
+.fa-floppy-disk, .fa-circle-plus, .fa-gift, .fa-comment {
+    margin-right: 8px;
+}
+
+/* Estilos para el contenedor del modal */
+.modal-dialog {
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+/* Estilos de la fila para añadir producto */
+.row.mt-3 {
+    margin-top: 20px;
+}
+
+/* Estilo de centrado para la columna */
+.col-md-4.offset-md-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Espaciado para el contenido de los inputs */
+.input-group.mb-3 {
+    margin-bottom: 15px;
+}
+
+/* Espaciado adicional para la columna de guardar */
+.d-grid.col-6.mx-auto {
+    margin-top: 20px;
+}
