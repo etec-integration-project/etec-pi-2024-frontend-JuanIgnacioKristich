@@ -10,6 +10,7 @@ import Cart from './componentes/cart/cart';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ShowProducts from './componentes/celulares/ShowProducts';
 import LocalStorageController from './componentes/login/LocalStorageController';
+import ContactForm from "./componentes/Contacto/Contacto";
 
 function App() {
 
@@ -83,6 +84,18 @@ function App() {
                 <>
                   <Header />
                   <Cart />
+                  <Footer />
+                </>
+              }>
+            </Route>
+
+
+            <Route
+              path="/Contacto"
+              element={
+                <>
+                  <Header />
+                  <ContactForm/>
                   <Footer />
                 </>
               }>

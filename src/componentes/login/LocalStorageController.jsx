@@ -130,34 +130,58 @@
 // export default LocalStorageController;
 
 
-
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import BACKEND from '../../config';
+import axios from 'axios';
 
 const LocalStorageController = () => {
   console.log('LocalStorageController montado.');
   const [userSession, setUserSession] = useState(null);
   const [cart, setCart] = useState([]);
 
+  // Function to fetch userId from the backend using the token
+  const fetchUserId = async (token) => {
+    try {
+      console.log('Realizando petición para obtener el userId con el token:', token);
+      const response = await axios.get(`${BACKEND}/users`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const userId = response.data.userId;
+      if (userId) {
+        console.log('userId obtenido exitosamente:', userId);
+        localStorage.setItem('userId', userId); // Guardar userId en localStorage
+        setUserSession((prev) => ({ ...prev, userId })); // Actualizar el estado
+      } else {
+        console.error('No se obtuvo un userId válido del backend.');
+      }
+    } catch (error) {
+      console.error('Error al obtener el userId desde el backend:', error);
+    }
+  };
+
   // Initialize data from localStorage when the component mounts
   useEffect(() => {
     console.log('Inicializando datos desde localStorage...');
     const storedToken = localStorage.getItem('userToken');
     const storedUserId = localStorage.getItem('userId');
-    if (storedToken && storedUserId) {
-      console.log('Token y userId de sesión encontrados en localStorage:', storedToken, storedUserId);
-      setUserSession({ token: storedToken, userId: storedUserId });
-      const storedCart = localStorage.getItem(`cart_${storedUserId}`);
-      if (storedCart) {
-        console.log('Datos del carrito encontrados en localStorage para el userId:', storedUserId);
-        const parsedCart = JSON.parse(storedCart);
-        setCart(parsedCart);
+    if (storedToken) {
+      if (storedUserId) {
+        console.log('Token y userId de sesión encontrados en localStorage:', storedToken, storedUserId);
+        setUserSession({ token: storedToken, userId: storedUserId });
+        const storedCart = localStorage.getItem(`cart_${storedUserId}`);
+        if (storedCart) {
+          console.log('Datos del carrito encontrados en localStorage para el userId:', storedUserId);
+          const parsedCart = JSON.parse(storedCart);
+          setCart(parsedCart);
+        } else {
+          console.warn('No se encontraron productos en el localStorage para el userId:', storedUserId);
+        }
       } else {
-        console.warn('No se encontraron productos en el localStorage para el userId:', storedUserId);
+        console.log('No se encontró un userId en el localStorage, intentando obtenerlo desde el backend...');
+        fetchUserId(storedToken); // Intentar obtener el userId
       }
     } else {
-      console.warn('No se encontraron token o userId de sesión en el localStorage.');
+      console.warn('No se encontró un token de sesión en el localStorage.');
     }
   }, []);
 
@@ -238,3 +262,4 @@ const LocalStorageController = () => {
 };
 
 export default LocalStorageController;
+
