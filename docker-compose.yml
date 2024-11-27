@@ -1,11 +1,62 @@
-
-version: '3'
 services:
-  frontend:
-    build: .
+  database:
+    image: mysql:latest
     ports:
-      - "3000:80"
+      - "3307:3306"
+    restart: always
     volumes:
-      - .:/app
-    stdin_open: true
-    tty: true
+      - ./data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: jk
+    networks:
+      - app_network
+
+
+  backend:
+    build:
+      context: https://github.com/etec-integration-project/etec-pi-2024-backend-JuanIgnacioKristich.git
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - "5000:5000"
+    networks:
+      - app_network
+    environment:
+      - DATABASE_NAME=jk
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_HOST=database
+      - PORT=5000  
+    user: root
+
+  frontend:
+    build:
+      context: https://github.com/etec-integration-project/etec-pi-2024-frontend-JuanIgnacioKristich.git
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - backend
+    networks:
+      - app_network
+    environment:
+      - PORT=3000
+      - REACT_APP_BACKEND_URL=backend:5000
+
+  nginx:
+    build:
+      context: https://github.com/JuanIgnacioKristich/nginx-final.git
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "80:80"
+    links:
+      - backend
+      - frontend
+    restart: always
+    networks:
+      - app_network
+
+networks:
+  app_network:
